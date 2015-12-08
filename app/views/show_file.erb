@@ -1,0 +1,13 @@
+<html>
+    <head>
+        <title>Show File</title>
+    </head>
+    <body>
+        <h1>See File <%= @filename %></h1>
+        <h1>contents:</h1>
+        <p><%= MyFile.get_contents_of_file(@filename) %></p>
+
+        <h1>word count:</h1>
+        <p><%= MyFile.get_total_word_count(@filename) %></p>
+    </body>
+</html>
