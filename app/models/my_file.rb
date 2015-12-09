@@ -13,7 +13,6 @@ class MyFile < ActiveRecord::Base
 
 	def get_total_word_count
 		@word_count = @contents.split(" ").size
-		# @contents.scan(/[\w']+/)
 	end
 
 	def get_word_frequency_hash
@@ -40,10 +39,4 @@ class MyFile < ActiveRecord::Base
         {'word_count' => @word_count, 'word_frequency_hash' => @word_frequency_hash}.to_json
     end
 
-    # def self.from_json(string)
-    #     data = JSON.load(string)
-    #     new_file = self.new
-    #     new_file.word_count = data['word_count']
-    #     new_file.word_frequency_hash = data['word_frequency_hash']
-    # end
 end

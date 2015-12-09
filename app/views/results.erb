@@ -1,0 +1,16 @@
+<a href="/">Home</a>
+
+<div class="container">
+<%= erb :'my_file/new' %>
+<h1>These files contained your search, <%= @searched_for %>:</h1>
+  <table>
+    <th>File Name</th>
+    <th>Number of appearances of term</th>
+    <% @results.each do |file| %>
+      <tr>
+        <td><a href="/my_file/<%= file.id %>"><%= file.filename %></a></td> 
+        <td><%= @searched_for %> appeared <%= file.word_frequency_hash[@searched_for] %> times.</td>  
+      </tr>
+    <% end %>
+  </table>
+</div>

@@ -1,13 +1,17 @@
 <div class="container">
+<h1>Seach files:</h1>
+<a href="/search">Search all uploaded files</a>
 <%= erb :'my_file/new' %>
 <h1>Uploaded files:</h1>
   <table>
     <th>File Name</th>
     <th>Link to Delete</th>
+    <th>Link to JSON Object</th>
     <% @my_files.each do |file| %>
       <tr>
         <td><a href="/my_file/<%= file.id %>"><%= file.filename %></a></td> 
         <td><a href="/my_file/<%=file.id %>/delete">delete</a></td> 
+        <td><a href="/my_file/<%= file.id %>.json">get json object for <%= file.filename %></a></td>  
       </tr>
     <% end %>
   </table>
