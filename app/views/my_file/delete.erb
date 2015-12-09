@@ -1,0 +1,11 @@
+
+<% if @my_file %>
+  <p>Are you sure you want to delete the file: <em>"<%= @my_file.filename %>"</em>?</p>
+  <form action="/my_file/<%= @my_file.id %>" method="post">
+    <input type="hidden" name="_method" value="delete">
+    <input type="submit" value="Yes, Delete It!">
+    <a href="/my_file/<%= @my_file.id %>">Cancel</a>
+  </form>
+<% else %>
+  <p>File not found.</p>
+<% end %>

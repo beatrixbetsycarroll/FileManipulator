@@ -1,30 +1,14 @@
 <div class="container">
-  <h1>Welcome to Sinatra!</h1>
-  <p>Hello, world!</p>
-
+<%= erb :'my_file/new' %>
+<h1>Uploaded files:</h1>
   <table>
-    <tr>
-      <th>File Description</th>
-      <th>File Location</th>
-    </tr>
-    <tr>
-      <td>This view file</td>
-      <td><code><%= __FILE__.gsub(Sinatra::Application.root, '') %></code></td>
-    </tr>
-    <tr>
-      <td>The layout file</td>
-      <td><code><%= File.expand_path('../layout.erb', __FILE__).gsub(Sinatra::Application.root, '') %></code></td>
-    </tr>
-    <tr>
-      <td>The current controller</td>
-      <td><code><%= File.expand_path('../../controllers/index.rb', __FILE__).gsub(Sinatra::Application.root, '') %></code></td>
-    </tr>
+    <th>File Name</th>
+    <th>Link to Delete</th>
+    <% @my_files.each do |file| %>
+      <tr>
+        <td><a href="/my_file/<%= file.id %>"><%= file.filename %></a></td> 
+        <td><a href="/my_file/<%=file.id %>/delete">delete</a></td> 
+      </tr>
+    <% end %>
   </table>
-
-  <%= erb :form %>
-
-  Uploaded files:
-  <% @my_files.each do |file| %>
-    <%= file.filename %>
-  <% end %>
 </div>

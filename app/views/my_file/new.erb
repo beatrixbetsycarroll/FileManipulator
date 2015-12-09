@@ -1,10 +1,11 @@
+<%= display_errors %>
+
 <html>
     <head>
         <title>file Upload</title>
     </head>
     <body>
         <h1>Upload File</h1>
-        
         <form action="/my_file" method="POST" enctype="multipart/form-data">
             <input type="file" name="file">
             <input type="submit" value="Upload file">
